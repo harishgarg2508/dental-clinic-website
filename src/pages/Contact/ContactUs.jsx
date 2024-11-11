@@ -9,26 +9,23 @@ const ContactUs = () => {
     email: '',
     message: '',
   });
-  const [isBlurred, setIsBlurred] = useState(false);
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    setIsBlurred(true);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Thank you for your message!');
     setFormData({ name: '', email: '', message: '' });
-    setIsBlurred(false);
   };
 
   return (
-    <div className={`contact-us ${isBlurred ? 'blurred' : ''}`}>
+    <div className={`contact-us`}>
       <Navbar />
 
       <header className="contact-us-header">
