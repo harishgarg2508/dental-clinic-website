@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-section about">
+        <div className="footer-section ">
           <h3>About Dental Clinic</h3>
           <p>
             Our clinic offers comprehensive dental care for the whole family. We are committed to

@@ -32,11 +32,11 @@ const Navbar = () => {
             Services
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/team" className={location.pathname === '/team' ? 'active' : ''}>
             Team
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/appointment" className={location.pathname === '/appointment' ? 'active' : ''}>
             Appointment

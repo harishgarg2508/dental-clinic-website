@@ -44,6 +44,7 @@ const AppointmentForm = () => {
   };
 
   return (
+    
     <form className="appointment-form" onSubmit={handleSubmit}>
       <h2 style={{ color: 'black' }}>Book an Appointment</h2>
 

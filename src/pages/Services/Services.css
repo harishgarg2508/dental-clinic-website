@@ -1,46 +1,30 @@
-/* Services.css */
+/* ServiceCardList.css */
+.service-card-list {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to right, #1E90FF, #4169E1, #00008B, #191970);
 
-.services {
-    text-align: center;
-    padding: 2rem;
-  }
-  
-  .services h2 {
-    color: #007acc;
-    margin-bottom: 1rem;
-  }
-  
-  .service-list {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .service-item {
-    width: 30%;
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .service-item h3 {
-    color: #007acc;
-  }
-  
-  .service-item p {
-    color: #555;
-  }
-  
-  .service-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #007acc;
-    text-decoration: none;
-  }
-  
-  .service-link:hover {
-    text-decoration: underline;
-  }
-  
+  min-height: 100vh;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.service-card-list .card {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.service-card-list .card-inner {
+  transition: transform 0.3s;
+}
+
+.service-card-list .card:hover .card-inner {
+  transform: rotateY(180deg);
+}
