@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AppointmentForm.css';
 
-const AppointmentForm = () => {
+export default function AppointmentForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +10,8 @@ const AppointmentForm = () => {
     time: '',
     notes: '',
   });
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,9 +23,13 @@ const AppointmentForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
+    setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost/backend/api/saveAppointment.php', {
+      console.log('Sending data:', formData);
+
+      const response = await fetch('http://localhost/dental-clinic-website/backend/api/saveAppointment.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,30 +37,53 @@ const AppointmentForm = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      console.log('Response status:', response.status);
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('Error parsing JSON:', parseError);
+        throw new Error('Invalid JSON response from server');
+      }
+
       if (data.status === 'success') {
         alert('Appointment booked successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          mobile: '',
+          date: '',
+          time: '',
+          notes: '',
+        });
       } else {
-        alert('Error: ' + data.message);
+        setError('Error: ' + (data.message || 'Unknown error occurred'));
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Something went wrong!');
+      setError(`Something went wrong: ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    
     <form className="appointment-form" onSubmit={handleSubmit}>
       <h2 style={{ color: 'black' }}>Book an Appointment</h2>
-
       <label>
         Name:
         <input type="text" name="name" value={formData.name} onChange={handleChange} required />
       </label>
       <label>
+        Email:
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+      </label>
+      <label>
         Mobile:
-        <input type="text" name="mobile" value={formData.mobile} onChange={handleChange} required />
+        <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} required />
       </label>
       <label>
         Date:
@@ -68,9 +97,10 @@ const AppointmentForm = () => {
         Notes:
         <textarea name="notes" value={formData.notes} onChange={handleChange} />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? 'Submitting...' : 'Submit'}
+      </button>
+      {error && <p className="error-message">{error}</p>}
     </form>
   );
-};
-
-export default AppointmentForm;
+}
