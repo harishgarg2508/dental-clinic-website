@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
 import Card from '../../components/card/Card';
+import NewServices from '../newservices/newservice';
 import AppointmentForm from '../../components/appointment/AppointmentForm';
 import './Home.css';
 
@@ -27,30 +28,12 @@ const Home = () => {
         </div>
         <div className="home-header-image">
           <img src="./assets/banner.png" alt="Dental Clinic" />
+          
         </div>
+        
       </header>
-
-      <section className="services-section">
-        <h2>Our Services</h2>
-        <div className="card-container">
-          <Card
-            title="Teeth Whitening"
-            description="Brighten your smile with our professional teeth whitening service."
-            image="./assets/teethwhite.jpg"
-          />
-          <Card
-            title="Dental Implants"
-            description="Restore your smile with safe and reliable dental implants."
-            image="./assets/implant.jpg"
-          />
-          <Card
-            title="Orthodontics"
-            description="Achieve the perfect smile with our orthodontic treatments."
-            image="./assets/orthodontics.jpg"
-          />
-        </div>
-      </section>
-
+      <NewServices /> 
+     
       <section ref={appointmentRef} className="appointment-section">
         <h2>Book an Appointment</h2>
         <AppointmentForm />

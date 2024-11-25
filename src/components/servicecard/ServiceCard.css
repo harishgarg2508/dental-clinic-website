@@ -1,6 +1,6 @@
 .card {
     width: 300px;
-    height: 400px;
+    height: 310px;
     perspective: 1000px; /* Adds depth for 3D effect */
   }
   
@@ -24,7 +24,7 @@
   }
   
   .card-front {
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,23 +62,4 @@
     color: white;
   }
   
-  .circle {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-  }
-  
-  .circle#right {
-    top: 30%;
-    right: 10%;
-    width: 50px;
-    height: 50px;
-  }
-  
-  .circle#bottom {
-    bottom: 20%;
-    left: 10%;
-    width: 50px;
-    height: 50px;
-  }
   

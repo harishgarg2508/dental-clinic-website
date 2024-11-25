@@ -1,10 +1,9 @@
+// ServiceCardList.jsx
 import React from 'react';
-import Navbar from '../../components/navbar/Navbar';
-import Footer from '../../components/footer/Footer';
 import ServiceCard from '../../components/servicecard/servicecard';
-import './Services.css';
+import './newservice.css';
 
-const ServiceCardList = () => {
+const NewServices = () => {
   const services = [
     {
       title: "Dental Check-Up",
@@ -131,26 +130,22 @@ const ServiceCardList = () => {
   
 
   return (
-    <div className="service-page-container">
-      <Navbar />
-      <div className="service-card-list">
-        <h1 className='h11'>Our Services</h1>
-        <div className="card-container">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              badge={service.badge}
-              frontImage={service.frontImage}
-              backImage={service.backImage}
-            />
-          ))}
-        </div>
+    <div className="service-card-list">
+      <h1 className='h11'>Our Services</h1>
+      <div className="card-container">
+        {services.map((service, index) => (
+          <ServiceCard
+            key={index}
+            title={service.title}
+            description={service.description}
+            badge={service.badge}
+            frontImage={service.frontImage}
+            backImage={service.backImage}
+          />
+        ))}
       </div>
-      <Footer />
     </div>
   );
 };
 
-export default ServiceCardList;
+export default NewServices;

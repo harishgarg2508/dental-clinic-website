@@ -3,22 +3,27 @@
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  
   background-image: linear-gradient(to right, #1E90FF, #4169E1, #00008B, #191970);
 
   min-height: 100vh;
 }
-
+.h11{
+  text-align: center;
+  color: black;
+}
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
 }
+
 
 .service-card-list .card {
   width: 100%;
   margin: 10px 0;
+   
 }
 
 .service-card-list .card-inner {
@@ -28,3 +33,4 @@
 .service-card-list .card:hover .card-inner {
   transform: rotateY(180deg);
 }
+

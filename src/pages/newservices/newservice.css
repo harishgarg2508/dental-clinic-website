@@ -1,0 +1,32 @@
+/* ServiceCardList.css */
+.service-card-list {
+    font-family: Arial, sans-serif;
+    background: transparent;
+    padding: 2rem;
+  }
+  
+  .h11 {
+    text-align: center;
+    color: #191970;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .service-card-list .card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card-list .card:hover {
+    transform: scale(1.05);
+  }
