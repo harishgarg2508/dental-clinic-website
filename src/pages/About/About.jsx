@@ -34,7 +34,7 @@ const About = () => {
             <div className="contact-info">
               <p><strong>Qualification:</strong> BDS, MIDA</p>
               <p><strong>Specialization:</strong> Dental Surgeon</p>
-              <p><strong>Mobile:</strong> M. 89628 88817, 75085 74656</p>
+              <p><strong>Mobile:</strong> M. 75085 74656 , +91 1604 01 3517</p>
             </div>
             <div className="clinic-timings">
               <h4>Clinic Timings</h4>
