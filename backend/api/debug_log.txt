@@ -1,0 +1,14 @@
+[2024-11-17 09:25:54] Script started
+[2024-11-17 09:25:54] Received POST request
+[2024-11-17 09:25:54] Received data: {"name":"Harish Garg","email":"rishusharma123321@gmail.com","mobile":"7876215235","date":"2024-11-27","time":"13:56","notes":"cgfgvhjbjn"}
+[2024-11-17 09:25:54] Attempting database connection
+[2024-11-17 09:25:54] Database connection successful
+[2024-11-17 09:25:54] Data inserted successfully
+[2024-11-17 09:25:54] Script ended
+[2024-11-17 10:00:49] Script started
+[2024-11-17 10:00:49] Received POST request
+[2024-11-17 10:00:49] Received data: {"name":"rishu","email":"qwe@gmail.com","mobile":"7894561235","date":"2024-11-06","time":"14:32","notes":"ghjkl"}
+[2024-11-17 10:00:49] Attempting database connection
+[2024-11-17 10:00:49] Database connection successful
+[2024-11-17 10:00:49] Data inserted successfully
+[2024-11-17 10:00:49] Script ended
