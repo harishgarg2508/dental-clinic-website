@@ -10,8 +10,9 @@ export default function AppointmentForm() {
     time: '',
     notes: '',
   });
-  const [error, setError] = useState(null);
+  const [result, setResult] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,34 +24,28 @@ export default function AppointmentForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    setResult('');
     setIsLoading(true);
 
-    try {
-      console.log('Sending data:', formData);
+    const form = new FormData();
+    form.append('name', formData.name);
+    form.append('email', formData.email);
+    form.append('mobile', formData.mobile);
+    form.append('date', formData.date);
+    form.append('time', formData.time);
+    form.append('notes', formData.notes);
+    form.append('access_key', 'e8b365d1-ba0f-486e-b3e8-b4cb642adecc');
 
-      const response = await fetch('http://localhost/dental-clinic-website/backend/api/saveAppointment.php', {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: form
       });
 
-      console.log('Response status:', response.status);
-      const responseText = await response.text();
-      console.log('Response text:', responseText);
+      const data = await response.json();
 
-      let data;
-      try {
-        data = JSON.parse(responseText);
-      } catch (parseError) {
-        console.error('Error parsing JSON:', parseError);
-        throw new Error('Invalid JSON response from server');
-      }
-
-      if (data.status === 'success') {
-        alert('Appointment booked successfully!');
+      if (data.success) {
+        setShowPopup(true);
         setFormData({
           name: '',
           email: '',
@@ -60,47 +55,65 @@ export default function AppointmentForm() {
           notes: '',
         });
       } else {
-        setError('Error: ' + (data.message || 'Unknown error occurred'));
+        setResult('Error: Something went wrong. Please try again.');
+        console.error('Form submission error:', data);
       }
     } catch (error) {
-      console.error('Error:', error);
-      setError(`Something went wrong: ${error.message}`);
+      setResult('Network error. Please try again.');
+      console.error('Submission error:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <form className="appointment-form" onSubmit={handleSubmit}>
-      <h2 style={{ color: 'black' }}>Book an Appointment</h2>
-      <label>
-        Name:
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </label>
-      <label>
-        Mobile:
-        <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} required />
-      </label>
-      <label>
-        Date:
-        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-      </label>
-      <label>
-        Time:
-        <input type="time" name="time" value={formData.time} onChange={handleChange} required />
-      </label>
-      <label>
-        Notes:
-        <textarea name="notes" value={formData.notes} onChange={handleChange} />
-      </label>
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Submitting...' : 'Submit'}
-      </button>
-      {error && <p className="error-message">{error}</p>}
-    </form>
+    <>
+      <form className="appointment-form" onSubmit={handleSubmit}>
+        <h2 style={{ color: 'black' }}>Book an Appointment</h2>
+        <label>
+          Name:
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        </label>
+        <label>
+          Email:
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        </label>
+        <label>
+          Mobile:
+          <input type="tel" name="mobile" value={formData.mobile} onChange={handleChange} required />
+        </label>
+        <label>
+          Date:
+          <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+        </label>
+        <label>
+          Time:
+          <input type="time" name="time" value={formData.time} onChange={handleChange} required />
+        </label>
+        <label>
+          Notes:
+          <textarea name="notes" value={formData.notes} onChange={handleChange} />
+        </label>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Submitting...' : 'Submit'}
+        </button>
+        {result && <p className="result-message">{result}</p>}
+      </form>
+
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+          <h2 style={{ color: "black" }}>Appointment Booked Successfully!</h2>
+          <p style={{ color: "black" }}>We have received your message and will contact you shortly.</p>
+
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

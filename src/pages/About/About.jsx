@@ -20,26 +20,28 @@ const About = () => {
         </a>
       </header>
 
-      {/* Removed the mission section */}
-      
-      <section className="team-section">
-        <h2>Meet Our Team</h2>
-        <div className="card-container">
+      {/* Doctor's Information Section */}
+      <section className="doctor-profile">
+        <h2>Meet Our Expert</h2>
+        <div className="doctor-info">
           <Card
-            title="Dr. John Smith"
-            description="Lead Dentist with over 20 years of experience in general and cosmetic dentistry."
-            image="./assets/john.jpg"
+            title="Dr. Suraj Sharma (BDS, MIDA)"
+            description="Dental Surgeon with extensive experience in providing expert dental care."
+            image="./assets/suraj.png"
           />
-          <Card
-            title="Dr. Emily Taylor"
-            description="Orthodontist specializing in braces and Invisalign treatments."
-            image="./assets/emily.jpg"
-          />
-          <Card
-            title="Dr. Sarah Brown"
-            description="Pediatric Dentist dedicated to caring for young patients."
-            image="./assets/sarah.jpg"
-          />
+          <div className="doctor-details">
+            <h3>Dr. Suraj Sharma</h3>
+            <div className="contact-info">
+              <p><strong>Qualification:</strong> BDS, MIDA</p>
+              <p><strong>Specialization:</strong> Dental Surgeon</p>
+              <p><strong>Mobile:</strong> M. 89628 88817, 75085 74656</p>
+            </div>
+            <div className="clinic-timings">
+              <h4>Clinic Timings</h4>
+              <p><strong>Morning:</strong> 9:00 AM – 2:00 PM</p>
+              <p><strong>Evening:</strong> 3:00 PM – 8:00 PM</p>
+            </div>
+          </div>
         </div>
       </section>
 

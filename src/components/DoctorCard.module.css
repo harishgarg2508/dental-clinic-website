@@ -1,0 +1,26 @@
+.doctorCard {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .doctorImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .doctorName {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .doctorTitle {
+    color: #666;
+  }
+  
+  

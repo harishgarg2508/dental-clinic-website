@@ -47,3 +47,43 @@
     background-color: #005fa3;
   }
   
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 15px;
+    color: black;
+    
+  }
+  
+  .popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
