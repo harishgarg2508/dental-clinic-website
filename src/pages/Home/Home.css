@@ -102,3 +102,75 @@
       max-width: 100%;
     }
   }
+
+  .home-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .home-header-content {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .book-appointment-btn,
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .book-appointment-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    gap: 0.5rem;
+  }
+  
+  .whatsapp-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .book-appointment-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .whatsapp-btn:hover {
+    background-color: #128c7e;
+  }
+  
+  @media (max-width: 768px) {
+    .home-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .home-header-content {
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  
+    .header-actions {
+      justify-content: center;
+    }
+  }

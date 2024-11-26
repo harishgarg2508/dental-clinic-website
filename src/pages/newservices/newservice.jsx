@@ -100,7 +100,7 @@ const NewServices = () => {
       title: "Aligners",
       description: "Custom clear aligners for discreet teeth straightening, offering convenience and comfort.",
       badge: "Discreet",
-      frontImage: "assets/orthodontics.jpg",
+      frontImage: "assets/aligners.png",
       backImage: "path/to/back-image-aligners.jpg",
     },
     {
