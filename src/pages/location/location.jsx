@@ -17,11 +17,12 @@ const ClinicLocation = () => {
 
   // Clinic images (replace with your actual image paths)
   const clinicImages = [
-    "/images/clinic-exterior.jpg",
-    "/images/clinic-reception.jpg",
-    "/images/clinic-treatment-room.jpg",
-    "/images/clinic-waiting-area.jpg",
-    "/images/dental-chair.jpg"
+    "/assets/view1.jpg",
+    "/assets/view2.jpg",
+    "/assets/view3.jpg",
+    "/assets/view4.jpg",
+    "/assets/view5.jpg"
+    
   ];
 
   // Open Google Maps with directions
