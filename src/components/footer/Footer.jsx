@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="footer-section contact">
           <h3>Contact Information</h3>
           <p><strong>Dr. Suraj Sharma (BDS, MIDA)</strong></p>
-          <p><strong>Mobile:</strong> M. 89628 88817, 75085 74656</p>
+          <p><strong>Mobile:</strong> M. 75085 74656, +91 1604 01 3517</p>
           <p><strong>Email:</strong> <a href="mailto:sunrisedental817@gmail.com">sunrisedental817@gmail.com</a></p>
           <p><strong>Address:</strong> Gali No 7, Near Shishu Niketan School, Nayagaon, Chandigarh, Punjab 160103</p>
         </div>
