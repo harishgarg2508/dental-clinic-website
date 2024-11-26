@@ -1,7 +1,7 @@
 import React from 'react';
 import './ServiceCard.css';  // Import the CSS file
 
-const ServiceCard = ({ title, description, badge,  frontImage }) => {
+const ServiceCard = ({ title, description, frontImage }) => {
   return (
     <div className="card">
       <div className="card-inner">
@@ -15,7 +15,7 @@ const ServiceCard = ({ title, description, badge,  frontImage }) => {
             <img src={frontImage} alt="Front" className="front-image" />
           </div>
           <div className="front-content">
-            <small className="badge">{badge}</small>
+            {/* <small className="badge">{badge}</small> */}
             <div className="description">
               <div className="title">
                 <p className="title"><strong>{title}</strong></p>
