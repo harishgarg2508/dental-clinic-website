@@ -57,7 +57,7 @@
       var(--primary-color) 0%, 
       var(--secondary-color) 100%
     );
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
   }
   
