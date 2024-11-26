@@ -47,6 +47,7 @@ const Home = () => {
       </header>
       
       <NewServices /> 
+      
      
       <section ref={appointmentRef} className="appointment-section">
         <h2>Book an Appointment</h2>
