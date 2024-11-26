@@ -15,9 +15,9 @@ const About = () => {
           Discover our commitment to excellence in dental care. Explore the story behind our dedicated team and our
           mission to create healthier, happier smiles.
         </p>
-        <a href="#" className="btn">
+        {/* <a href="#" className="btn">
           Learn More
-        </a>
+        </a> */}
       </header>
 
       {/* Doctor's Information Section */}
