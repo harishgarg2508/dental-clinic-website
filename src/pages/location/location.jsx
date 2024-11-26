@@ -1,9 +1,9 @@
 // src/pages/ClinicLocation.jsx
 import React, { useState } from 'react';
-import './Location.css';
+import './location.css';
 import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
-import { div } from 'framer-motion/client';
+// import { div } from 'framer-motion/client';
 
 const ClinicLocation = () => {
   const [selectedImage, setSelectedImage] = useState(null);
