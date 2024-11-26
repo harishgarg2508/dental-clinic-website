@@ -1,12 +1,11 @@
-// src/pages/ClinicLocation.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './location.css';
 import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
-// import { div } from 'framer-motion/client';
 
 const ClinicLocation = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(null);
 
   // Clinic location details
   const clinicLocation = {
@@ -22,7 +21,6 @@ const ClinicLocation = () => {
     "/assets/view3.jpg",
     "/assets/view4.jpg",
     "/assets/view5.jpg"
-    
   ];
 
   // Open Google Maps with directions
@@ -31,14 +29,89 @@ const ClinicLocation = () => {
   };
 
   // Open image in full screen
-  const openImageModal = (image) => {
+  const openImageModal = (image, index) => {
     setSelectedImage(image);
+    setCurrentImageIndex(index);
   };
 
   // Close image modal
   const closeImageModal = () => {
     setSelectedImage(null);
+    setCurrentImageIndex(null);
   };
+
+  // Navigate to next image
+  const nextImage = useCallback(() => {
+    if (currentImageIndex !== null) {
+      const nextIndex = (currentImageIndex + 1) % clinicImages.length;
+      setSelectedImage(clinicImages[nextIndex]);
+      setCurrentImageIndex(nextIndex);
+    }
+  }, [currentImageIndex, clinicImages]);
+
+  // Navigate to previous image
+  const prevImage = useCallback(() => {
+    if (currentImageIndex !== null) {
+      const prevIndex = (currentImageIndex - 1 + clinicImages.length) % clinicImages.length;
+      setSelectedImage(clinicImages[prevIndex]);
+      setCurrentImageIndex(prevIndex);
+    }
+  }, [currentImageIndex, clinicImages]);
+
+  // Touch event tracking
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Handle touch start
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  // Handle touch move
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  // Handle touch end (swipe detection)
+  const handleTouchEnd = () => {
+    if (selectedImage) {
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 75;
+      const isRightSwipe = distance < -75;
+
+      if (isLeftSwipe) {
+        nextImage();
+      } else if (isRightSwipe) {
+        prevImage();
+      }
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedImage) {
+        switch (e.key) {
+          case 'ArrowRight':
+            nextImage();
+            break;
+          case 'ArrowLeft':
+            prevImage();
+            break;
+          case 'Escape':
+            closeImageModal();
+            break;
+          default:
+            break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedImage, nextImage, prevImage]);
 
   return (
     <div>
@@ -91,7 +164,7 @@ const ClinicLocation = () => {
             <div 
               key={index} 
               className="gallery-item"
-              onClick={() => openImageModal(image)}
+              onClick={() => openImageModal(image, index)}
             >
               <img 
                 src={image} 
@@ -111,13 +184,34 @@ const ClinicLocation = () => {
         <div 
           className="image-modal"
           onClick={closeImageModal}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          <div className="modal-content">
+          <div 
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="nav-btn prev-btn"
+              onClick={prevImage}
+            >
+              &#10094;
+            </button>
+
             <img 
               src={selectedImage} 
               alt="Full Screen" 
               className="modal-image"
             />
+
+            <button 
+              className="nav-btn next-btn"
+              onClick={nextImage}
+            >
+              &#10095;
+            </button>
+
             <button 
               className="close-modal-btn"
               onClick={closeImageModal}
