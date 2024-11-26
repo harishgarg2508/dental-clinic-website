@@ -7,7 +7,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(to right, #1E90FF, #4169E1, #00008B, #191970);
+    background-image: linear-gradient(to right, #1E90FF, #4169E1, #87CEFA, #ADD8E6);
+
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -70,8 +71,8 @@
   }
   
   .appointment-section {
-    background-image: linear-gradient(to right, #1E90FF, #4169E1, #00008B, #191970);
-    color: #fff;
+    background-image: linear-gradient(to right, #1E90FF, #4169E1, #87CEFA, #ADD8E6);
+
     padding: 4rem 2rem;
     text-align: center;
   }

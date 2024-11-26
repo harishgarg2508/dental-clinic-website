@@ -24,7 +24,8 @@
   .about-header {
     width: 100%;
     padding: 4rem 2rem;
-    background-image: linear-gradient(to right, #1e90ff, #4169e1, #00008b, #191970);
+    background-image: linear-gradient(to right, #1E90FF, #4169E1, #87CEFA, #ADD8E6);
+
     color: #fff;
     text-align: center;
     box-sizing: border-box;

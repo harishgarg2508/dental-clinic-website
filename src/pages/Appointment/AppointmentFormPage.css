@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: linear-gradient(to right, #1E90FF, #4169E1, #00008B, #191970);
+    background-image: linear-gradient(to right, #1E90FF, #4169E1, #87CEFA, #ADD8E6);
 }
 
 .appointment-content {

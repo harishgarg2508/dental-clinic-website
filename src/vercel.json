@@ -1,0 +1,28 @@
+{
+    "routes": [
+      {
+        "src": "/",
+        "dest": "/"
+      },
+      {
+        "src": "/about",
+        "dest": "/"
+      },
+      {
+        "src": "/contact",
+        "dest": "/"
+      },
+      {
+        "src": "/appointment",
+        "dest": "/"
+      },
+      {
+        "src": "/services",
+        "dest": "/"
+      },
+      {
+        "src": "/services/:serviceId",
+        "dest": "/"
+      }
+    ]
+  }
