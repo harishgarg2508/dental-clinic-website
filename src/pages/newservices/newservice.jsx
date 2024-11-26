@@ -58,7 +58,7 @@ const NewServices = () => {
       title: "Fix and Removable Teeth",
       description: "Custom solutions for fixed and removable teeth to restore your smile's function and aesthetics.",
       badge: "Customizable",
-      frontImage: "assets/fix-removal.jpg",
+      frontImage: "assets/removable.png",
       backImage: "path/to/back-image-fix-removable.jpg",
     },
     {
@@ -93,7 +93,7 @@ const NewServices = () => {
       title: "Rotary R.C.T",
       description: "Efficient and precise rotary root canal treatment for quick recovery and long-lasting results.",
       badge: "Efficient",
-      frontImage: "assets/implant.jpg",
+      frontImage: "assets/rotary.png",
       backImage: "path/to/back-image-rotary-rct.jpg",
     },
     {

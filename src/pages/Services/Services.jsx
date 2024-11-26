@@ -59,7 +59,7 @@ const ServiceCardList = () => {
       title: "Fix and Removable Teeth",
       description: "Custom solutions for fixed and removable teeth to restore your smile's function and aesthetics.",
       badge: "Customizable",
-      frontImage: "assets/fix-removal.jpg",
+      frontImage: "assets/removable.png",
       backImage: "path/to/back-image-fix-removable.jpg",
     },
     {
@@ -94,14 +94,14 @@ const ServiceCardList = () => {
       title: "Rotary R.C.T",
       description: "Efficient and precise rotary root canal treatment for quick recovery and long-lasting results.",
       badge: "Efficient",
-      frontImage: "assets/implant.jpg",
+      frontImage: "assets/rotary.png",
       backImage: "path/to/back-image-rotary-rct.jpg",
     },
     {
       title: "Aligners",
       description: "Custom clear aligners for discreet teeth straightening, offering convenience and comfort.",
       badge: "Discreet",
-      frontImage: "assets/orthodontics.jpg",
+      frontImage: "assets/aligners.png",
       backImage: "path/to/back-image-aligners.jpg",
     },
     {
