@@ -1,0 +1,246 @@
+/* src/pages/ClinicLocation.css */
+:root {
+    /* Color Palette */
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-start: #f0f4f8;
+    --background-end: #e6eaf0;
+    --card-background: rgba(255, 255, 255, 0.9);
+  }
+  
+  body {
+    margin: 0;
+    background: linear-gradient(
+      135deg, 
+      var(--background-start) 0%, 
+      var(--background-end) 100%
+    );
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+  
+  .clinic-location-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: transparent;
+  }
+  
+  /* Section Styles with Gradient and Glass Effect */
+  .location-section,
+  .gallery-section {
+    background: var(--card-background);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.1),
+      0 6px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+  }
+  
+  .location-section:hover,
+  .gallery-section:hover {
+    transform: translateY(-5px);
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    background: linear-gradient(
+      90deg, 
+      var(--primary-color) 0%, 
+      var(--secondary-color) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Map Container with Gradient Border */
+  .map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .map-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      45deg, 
+      var(--primary-color), 
+      var(--secondary-color)
+    );
+    z-index: -1;
+    filter: blur(5px);
+  }
+  
+  iframe {
+    position: relative;
+    z-index: 1;
+    border-radius: 15px;
+  }
+  
+  /* Location Details with Soft Gradient */
+  .location-details {
+    background: linear-gradient(
+      to right, 
+      rgba(46, 204, 113, 0.1), 
+      rgba(52, 152, 219, 0.1)
+    );
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+  }
+  
+  .directions-btn {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+      to right, 
+      var(--primary-color), 
+      var(--secondary-color)
+    );
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .directions-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(
+      to right, 
+      var(--secondary-color), 
+      var(--primary-color)
+    );
+  }
+  
+  /* Image Gallery with Enhanced Styling */
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: white;
+  }
+  
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.12),
+      0 4px 8px rgba(0, 0, 0, 0.06);
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom, 
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.7)
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gallery-item:hover .image-overlay {
+    opacity: 1;
+  }
+  
+  .expand-icon {
+    color: white;
+    font-size: 30px;
+    opacity: 0.8;
+  }
+  
+  /* Image Modal with Gradient Backdrop */
+  .image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.8), 
+      rgba(0, 0, 0, 0.9)
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .image-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .location-section,
+    .gallery-section {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .image-gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .clinic-location-container{
+    color: black;
+  }

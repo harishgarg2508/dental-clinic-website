@@ -6,6 +6,7 @@ import ContactUs from './pages/Contact/ContactUs';
 import Appointment from './pages/Appointment/Appointment';
 import ServiceDetail from './pages/Services/ServiceDetail';
 import Services from './pages/Services/Services';
+import ClinicLocation from './pages/location/location';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/location" element={<ClinicLocation />} />
         </Routes>
       </div>
     </Router>

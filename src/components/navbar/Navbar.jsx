@@ -42,11 +42,11 @@ const Navbar = () => {
             Contact
           </Link>
         </li>
-        {/* <li>
-          <Link to="/profile" className={location.pathname === '/profile' ? 'active' : ''}>
-            Profile
+        <li>
+          <Link to="/Location" className={location.pathname === '/location' ? 'active' : ''}>
+            About Clinic
           </Link>
-        </li> */}
+        </li>
       </ul>
       <button className={`navbar-toggler ${showLinks ? 'active' : ''}`} onClick={toggleNavbar}>
         <span className="icon-bar"></span>
