@@ -27,7 +27,7 @@ const About = () => {
             <div className="doctor-info">
               <div className="doctor-card">
                 <Card
-                  title="Dr. Suraj Sharma (BDS, MIDA)"
+                  title="Dr. Suraj Sharma"
                   description="Dental Surgeon with extensive experience in providing expert dental care."
                   image="/assets/suraj.png"  // Use absolute path from public folder
                 />
